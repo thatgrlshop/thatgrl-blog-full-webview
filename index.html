@@ -25,6 +25,7 @@
     <div class="error hidden" id="error"></div>
     <button class="more hidden" id="more" type="button">See All Posts</button>
   </main>
+  <main class="reader hidden" id="readerView" aria-live="polite"></main>
   <script>
     const CONFIG={
       apiUrl:"https://www.thatgrlshop.com/_functions/blogPosts",
@@ -38,9 +39,8 @@
         {label:"Mindset",slugs:["self-love","mindset"]}
       ]
     };
-    const savedState=(()=>{try{return JSON.parse(sessionStorage.getItem("thatgrlBlogListState")||"null")}catch(e){return null}})();
-    const state={offset:0,total:Infinity,loading:false,category:savedState?.category||"",scrollY:savedState?.scrollY||0};
-    const home=document.querySelector("#homeView"),feed=document.querySelector("#feed"),more=document.querySelector("#more"),error=document.querySelector("#error"),status=document.querySelector("#status"),listTitle=document.querySelector("#listTitle"),categories=document.querySelector("#categories");
+    const state={offset:0,total:Infinity,loading:false,category:"",scrollY:0};
+    const home=document.querySelector("#homeView"),reader=document.querySelector("#readerView"),feed=document.querySelector("#feed"),more=document.querySelector("#more"),error=document.querySelector("#error"),status=document.querySelector("#status"),listTitle=document.querySelector("#listTitle"),categories=document.querySelector("#categories");
     const eye='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg>';
     const heart='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 5.8a5.4 5.4 0 0 0-7.7 0L12 6.9l-1.1-1.1a5.4 5.4 0 0 0-7.7 7.7L12 22l8.8-8.5a5.4 5.4 0 0 0 0-7.7Z"/></svg>';
     const esc=s=>String(s??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
@@ -53,11 +53,11 @@
     const ricosHtml=doc=>(doc?.nodes||[]).map(ricosNode).join("");
     async function api(params){const u=new URL(CONFIG.apiUrl);Object.entries(params).forEach(([k,v])=>{if(v!==""&&v!=null)u.searchParams.set(k,v)});const r=await fetch(u,{headers:{Accept:"application/json"}});if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json()}
     async function loadPosts(){if(state.loading||state.offset>=state.total)return;state.loading=true;more.disabled=true;error.classList.add("hidden");if(!feed.children.length)feed.innerHTML=Array.from({length:CONFIG.pageSize},()=>'<div class="skeleton-card" aria-hidden="true"></div>').join("");try{const data=await api({offset:state.offset,limit:CONFIG.pageSize,categoryId:state.category});const items=Array.isArray(data.items)?data.items:[];if(state.offset===0)feed.innerHTML="";feed.insertAdjacentHTML("beforeend",items.map(p=>card(p)).join(""));state.offset+=items.length;state.total=Number.isFinite(data.totalCount)?data.totalCount:state.offset+(items.length===CONFIG.pageSize?1:0);status.textContent=`${state.total} posts`;more.classList.toggle("hidden",state.offset>=state.total||!items.length)}catch(e){if(!state.offset)feed.innerHTML="";error.textContent=`The posts could not be loaded. (${e.message})`;error.classList.remove("hidden")}finally{state.loading=false;more.disabled=false}}
-    function openArticle(id){sessionStorage.setItem("thatgrlBlogListState",JSON.stringify({category:state.category,offset:state.offset,scrollY:window.scrollY}));location.href=`article.html?postId=${encodeURIComponent(id)}&v=13`}
-    document.addEventListener("click",e=>{const link=e.target.closest("[data-post-id]");if(link){e.preventDefault();e.stopPropagation();openArticle(link.dataset.postId);return}const cat=e.target.closest(".category");if(cat){state.category=cat.dataset.slugs;state.offset=0;state.total=Infinity;state.scrollY=0;sessionStorage.removeItem("thatgrlBlogListState");feed.innerHTML="";const found=CONFIG.categories.find(c=>c.slugs.join(",")===state.category);listTitle.textContent=found?.label==="All"?"Latest Posts":found?.label||"Latest Posts";renderCategories();loadPosts()}});
+    async function openArticle(id){state.scrollY=window.scrollY;home.classList.add("hidden");reader.classList.remove("hidden");reader.innerHTML='<div class="skeleton"></div><div class="skeleton"></div>';try{const data=await api({postId:id});const p=data.item;if(!p)throw new Error("Post not found");const content=ricosHtml(p.richContent)||`<div class="article-empty">${esc(p.contentText||p.excerpt)}</div>`;reader.innerHTML=`<div class="reader-bar"><button class="reader-back" type="button">← Back</button></div>${p.image?`<img class="reader-cover" src="${esc(p.image)}" alt="">`:""}<header class="reader-head"><h1 class="reader-title">${esc(p.title)}</h1><div class="meta reader-meta"><span>${heart}${compact(p.likes)}</span><span>${eye}${compact(p.views)}</span></div></header><article class="article-body">${content}</article>`}catch(e){reader.innerHTML=`<div class="reader-bar"><button class="reader-back" type="button">← Back</button></div><div class="error">The article could not be loaded. (${esc(e.message)})</div>`}}
+    function closeArticle(){reader.classList.add("hidden");home.classList.remove("hidden");reader.innerHTML="";requestAnimationFrame(()=>window.scrollTo(0,state.scrollY))}
+    document.addEventListener("click",e=>{const link=e.target.closest("[data-post-id]");if(link){e.preventDefault();e.stopPropagation();openArticle(link.dataset.postId);return}const back=e.target.closest(".reader-back");if(back){e.preventDefault();closeArticle();return}const cat=e.target.closest(".category");if(cat){state.category=cat.dataset.slugs;state.offset=0;state.total=Infinity;feed.innerHTML="";const found=CONFIG.categories.find(c=>c.slugs.join(",")===state.category);listTitle.textContent=found?.label==="All"?"Latest Posts":found?.label||"Latest Posts";renderCategories();loadPosts()}});
     more.addEventListener("click",loadPosts);
-    async function start(){const found=CONFIG.categories.find(c=>c.slugs.join(",")===state.category);listTitle.textContent=found?.label==="All"?"Latest Posts":found?.label||"Latest Posts";renderCategories();const target=Math.max(CONFIG.pageSize,Number(savedState?.offset)||CONFIG.pageSize);await loadPosts();while(state.offset<target&&state.offset<state.total)await loadPosts();if(savedState)requestAnimationFrame(()=>window.scrollTo(0,Number(savedState.scrollY)||0))}
-    start();
+    renderCategories();loadPosts();
   </script>
 </body>
 </html>
