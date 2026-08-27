@@ -17,7 +17,7 @@
     *{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}#homeView,#readerView{height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}button,a{-webkit-tap-highlight-color:transparent}.hidden{display:none!important}.shell{max-width:760px;margin:auto;padding-bottom:max(140px,calc(env(safe-area-inset-bottom) + 110px))}.hero-photo{display:block;width:100%;aspect-ratio:4/1;object-fit:cover}.hero-word{display:block;width:100%}.section-title{font-size:25px;line-height:1.15;margin:0;padding:24px 18px 15px;font-weight:780;letter-spacing:-.025em}
     .categories::-webkit-scrollbar{display:none}.category-wrap{border-bottom:1px solid var(--line);padding-bottom:17px}.category-label{font-size:17px;font-weight:760;margin:0;padding:20px 18px 12px}.categories{display:flex;gap:9px;overflow-x:auto;padding:0 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.category{flex:none;border:1px solid var(--accent);background:#fff;color:var(--ink);border-radius:999px;padding:10px 17px;font-size:15px;font-weight:700;white-space:nowrap}.category.active{background:var(--accent);color:#fff}
     .list-heading{display:flex;align-items:baseline;justify-content:space-between;padding:23px 18px 14px}.list-heading h2{font-size:25px;margin:0;letter-spacing:-.025em}.status{font-size:12px}.feed{display:grid;gap:12px;background:var(--line)}.card{display:block;width:100%;margin:0;padding:0;border:0;color:inherit;text-align:left;font:inherit;background:#fff;cursor:pointer}.cover{display:block;width:100%;aspect-ratio:1.62/1;object-fit:cover;background:#f1eeeb}.copy{padding:20px 18px 17px}.title{font-size:26px;line-height:1.24;font-weight:750;letter-spacing:-.025em;margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.excerpt{font-size:18px;line-height:1.48;margin:0 0 14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.meta{display:flex;gap:17px;align-items:center;padding-top:12px;border-top:1px solid var(--line);font-size:17px}.meta span{display:inline-flex;gap:7px;align-items:center}.icon{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7}.more{display:block;min-width:180px;border:0;background:var(--accent);color:#fff;border-radius:999px;padding:13px 25px;margin:28px auto;font-weight:750;font-size:19px}.more:disabled{opacity:.5}.error{margin:14px 18px;border:1px solid #e6c8c4;background:#fff7f5;border-radius:12px;padding:14px;color:#8a2f27}.skeleton{animation:pulse 1.25s ease-in-out infinite;background:#f0ece9;border-radius:var(--radius);min-height:145px;margin:12px 18px}.skeleton-card{height:min(118vw,570px);min-height:430px;background:#fff;overflow:hidden}.skeleton-card::before{content:"";display:block;width:100%;aspect-ratio:1.62/1;background:#f0ece9}.skeleton-card::after{content:"";display:block;height:145px;margin:20px 18px;border-radius:8px;background:#f0ece9}.skeleton-card,.skeleton-card::before,.skeleton-card::after{animation:pulse 1.25s ease-in-out infinite}@keyframes pulse{50%{opacity:.52}}
-    .reader{background:#fff;padding-top:28px;padding-bottom:max(28px,env(safe-area-inset-bottom))}.reader-bar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);padding:calc(7px + env(safe-area-inset-top)) 18px 7px}.reader-back{display:inline-flex;align-items:center;gap:7px;border:0;background:none;color:var(--ink);font-size:16px;font-weight:700;padding:8px 0}.reader-cover{display:block;width:100%;max-height:70vh;object-fit:cover}.reader-head{padding:24px 20px 12px}.reader-title{font-size:32px;line-height:1.18;letter-spacing:-.03em;margin:0 0 16px}.reader-meta{border:0;padding:0}.article-body{padding:8px 20px 44px;font-size:18px;line-height:1.65}.article-body p{margin:0 0 1.2em}.article-body h1,.article-body h2,.article-body h3,.article-body h4{line-height:1.2;margin:1.5em 0 .6em}.article-body img,.article-body video{display:block;width:100%;height:auto;margin:24px 0;border-radius:8px}.article-body blockquote{border-left:3px solid var(--accent);margin:24px 0;padding-left:18px}.article-body a{color:inherit}.article-body hr{border:0;border-top:1px solid var(--line);margin:28px 0}.article-body ul,.article-body ol{padding-left:25px}.article-empty{white-space:pre-wrap}
+    .reader{background:#fff;padding-top:28px;padding-bottom:max(28px,env(safe-area-inset-bottom))}.reader-bar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);padding:calc(7px + env(safe-area-inset-top)) 18px 7px;display:flex;align-items:center;justify-content:space-between}.reader-back{display:inline-flex;align-items:center;gap:7px;border:0;background:none;color:var(--ink);font-size:16px;font-weight:700;padding:8px 0}.like-btn{display:inline-flex;align-items:center;justify-content:center;border:0;background:none;color:var(--ink);padding:8px}.like-btn .icon{width:24px;height:24px}.like-btn.liked .icon{fill:var(--accent);stroke:var(--accent)}.like-btn:disabled{opacity:.5}.reader-cover{display:block;width:100%;max-height:70vh;object-fit:cover}.reader-head{padding:24px 20px 12px}.reader-title{font-size:32px;line-height:1.18;letter-spacing:-.03em;margin:0 0 16px}.reader-meta{border:0;padding:0}.article-body{padding:8px 20px 44px;font-size:18px;line-height:1.65}.article-body p{margin:0 0 1.2em}.article-body h1,.article-body h2,.article-body h3,.article-body h4{line-height:1.2;margin:1.5em 0 .6em}.article-body img,.article-body video{display:block;width:100%;height:auto;margin:24px 0;border-radius:8px}.article-body blockquote{border-left:3px solid var(--accent);margin:24px 0;padding-left:18px}.article-body a{color:inherit}.article-body hr{border:0;border-top:1px solid var(--line);margin:28px 0}.article-body ul,.article-body ol{padding-left:25px}.article-empty{white-space:pre-wrap}
     .article-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:16px}.article-body td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}.article-body .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:20px 0}.article-body .gallery img{width:100%;height:100%;object-fit:cover;border-radius:8px;margin:0}.article-body audio{width:100%;margin:16px 0}.article-body .rc-button{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;margin:12px 0;font-weight:700}.article-body .link-preview{display:block;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:16px 0;text-decoration:none;color:inherit}.article-body details{margin:16px 0;border:1px solid var(--line);border-radius:8px;padding:10px 14px}.article-body summary{font-weight:700;cursor:pointer}.article-body .rc-layout{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}.article-body .rc-layout-cell{flex:1 1 200px}
     @media(max-width:370px){.title{font-size:23px}.excerpt{font-size:16px}.reader-title{font-size:28px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.skeleton,.skeleton-card,.skeleton-card::before,.skeleton-card::after{animation:none}}
   </style>
@@ -117,11 +117,212 @@
     async function loadPosts(){if(state.loading||state.offset>=state.total)return;state.loading=true;more.disabled=true;error.classList.add("hidden");if(!feed.children.length)feed.innerHTML=Array.from({length:CONFIG.pageSize},()=>'<div class="skeleton-card" aria-hidden="true"></div>').join("");try{const data=await api({offset:state.offset,limit:CONFIG.pageSize,categoryId:state.category});const items=Array.isArray(data.items)?data.items:[];if(state.offset===0)feed.innerHTML="";feed.insertAdjacentHTML("beforeend",items.map(p=>card(p)).join(""));state.offset+=items.length;state.total=Number.isFinite(data.totalCount)?data.totalCount:state.offset+(items.length===CONFIG.pageSize?1:0);status.textContent=`${state.total} posts`;more.classList.toggle("hidden",state.offset>=state.total||!items.length)}catch(e){if(!state.offset)feed.innerHTML="";error.textContent=`The posts could not be loaded. (${e.message})`;error.classList.remove("hidden")}finally{state.loading=false;more.disabled=false}}
     function scrollTopNow(){reader.scrollTop=0}
     function registerView(id){fetch(`${CONFIG.viewUrl}?postId=${encodeURIComponent(id)}`,{method:"POST"}).catch(()=>{})}
-    async function openArticle(id){state.scrollY=home.scrollTop;home.classList.add("hidden");reader.classList.remove("hidden");reader.innerHTML='<div class="skeleton"></div><div class="skeleton"></div>';scrollTopNow();registerView(id);try{const data=await api({postId:id});const p=data.item;if(!p)throw new Error("Post not found");const content=ricosHtml(p.richContent)||`<div class="article-empty">${esc(p.contentText||p.excerpt)}</div>`;reader.innerHTML=`<div class="reader-bar"><button class="reader-back" type="button">← Back</button></div>${p.image?`<img class="reader-cover" src="${esc(p.image)}" alt="">`:""}<header class="reader-head"><h1 class="reader-title">${esc(p.title)}</h1><div class="meta reader-meta"><span>${heart}${compact(p.likes)}</span><span>${eye}${compact(p.views)}</span></div></header><article class="article-body">${content}</article>`}catch(e){reader.innerHTML=`<div class="reader-bar"><button class="reader-back" type="button">← Back</button></div><div class="error">The article could not be loaded. (${esc(e.message)})</div>`}finally{scrollTopNow()}}
+    async function openArticle(id){state.scrollY=home.scrollTop;home.classList.add("hidden");reader.classList.remove("hidden");reader.innerHTML='<div class="skeleton"></div><div class="skeleton"></div>';scrollTopNow();registerView(id);try{const data=await api({postId:id});const p=data.item;if(!p)throw new Error("Post not found");const content=ricosHtml(p.richContent)||`<div class="article-empty">${esc(p.contentText||p.excerpt)}</div>`;reader.innerHTML=`<div class="reader-bar"><button class="reader-back" type="button">← Back</button><button class="like-btn" type="button" data-like-post="${esc(p.id)}" aria-label="Like this post" aria-pressed="false">${heart}</button></div>${p.image?`<img class="reader-cover" src="${esc(p.image)}" alt="">`:""}<header class="reader-head"><h1 class="reader-title">${esc(p.title)}</h1><div class="meta reader-meta"><span>${heart}${compact(p.likes)}</span><span>${eye}${compact(p.views)}</span></div></header><article class="article-body">${content}</article>`;if(window.refreshLikeButtonForCurrentArticle)refreshLikeButtonForCurrentArticle(p.id)}catch(e){reader.innerHTML=`<div class="reader-bar"><button class="reader-back" type="button">← Back</button></div><div class="error">The article could not be loaded. (${esc(e.message)})</div>`}finally{scrollTopNow()}}
     function closeArticle(){reader.classList.add("hidden");home.classList.remove("hidden");reader.innerHTML="";home.scrollTop=state.scrollY}
     document.addEventListener("click",e=>{const link=e.target.closest("[data-post-id]");if(link){e.preventDefault();e.stopPropagation();openArticle(link.dataset.postId);return}const back=e.target.closest(".reader-back");if(back){e.preventDefault();closeArticle();return}const cat=e.target.closest(".category");if(cat){state.category=cat.dataset.slugs;state.offset=0;state.total=Infinity;feed.innerHTML="";const found=CONFIG.categories.find(c=>c.slugs.join(",")===state.category);listTitle.textContent=found?.label==="All"?"Latest Posts":found?.label||"Latest Posts";renderCategories();loadPosts()}});
     more.addEventListener("click",loadPosts);
     renderCategories();loadPosts();
+  </script>
+  <script>
+    // ---- Member login + likes (Wix Headless OAuth, PKCE) ----
+    // Reading never requires login. Only tapping the heart does. Wix hosts
+    // the actual login page (redirect flow) so no password ever touches
+    // this widget; we just exchange the returned code for member tokens
+    // and use them to create a REAL like on the member's Wix account via
+    // the Blog Likes API - not a fake counter.
+    const OAUTH = {
+      clientId: "b76ea84c-963d-4bbd-82e8-8c1cd284c771",
+      redirectUri: "https://thatgrlshop.github.io/thatgrl-blog-full-webview/",
+      tokenUrl: "https://www.wixapis.com/oauth2/token",
+      redirectSessionUrl: "https://www.wixapis.com/_api/redirects-api/v1/redirect-session",
+      likesUrl: "https://www.wixapis.com/blog/v1/likes"
+    };
+
+    function b64url(bytes) {
+      let str = "";
+      bytes.forEach(b => { str += String.fromCharCode(b); });
+      return btoa(str).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+    function randomToken(len) {
+      const bytes = new Uint8Array(len);
+      crypto.getRandomValues(bytes);
+      return b64url(bytes);
+    }
+    async function sha256Base64Url(input) {
+      const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(input));
+      return b64url(new Uint8Array(digest));
+    }
+    function readJson(key) {
+      try { return JSON.parse(localStorage.getItem(key) || "null"); } catch (e) { return null; }
+    }
+    function writeJson(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+    }
+
+    async function getVisitorToken() {
+      const saved = readJson("tg_visitor");
+      if (saved && saved.expiresAt > Date.now() + 30000) return saved.accessToken;
+      const body = saved && saved.refreshToken
+        ? { clientId: OAUTH.clientId, grantType: "refresh_token", refreshToken: saved.refreshToken }
+        : { clientId: OAUTH.clientId, grantType: "anonymous" };
+      const r = await fetch(OAUTH.tokenUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      if (!r.ok) throw new Error("visitor token request failed");
+      const data = await r.json();
+      writeJson("tg_visitor", { accessToken: data.access_token, refreshToken: data.refresh_token, expiresAt: Date.now() + data.expires_in * 1000 });
+      return data.access_token;
+    }
+
+    async function getMemberToken() {
+      const saved = readJson("tg_member");
+      if (!saved) return null;
+      if (saved.expiresAt > Date.now() + 30000) return saved.accessToken;
+      try {
+        const r = await fetch(OAUTH.tokenUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ clientId: OAUTH.clientId, grantType: "refresh_token", refreshToken: saved.refreshToken }) });
+        if (!r.ok) throw new Error("refresh failed");
+        const data = await r.json();
+        const next = { accessToken: data.access_token, refreshToken: data.refresh_token, expiresAt: Date.now() + data.expires_in * 1000 };
+        writeJson("tg_member", next);
+        return next.accessToken;
+      } catch (e) {
+        localStorage.removeItem("tg_member");
+        return null;
+      }
+    }
+
+    async function startMemberLogin(postId) {
+      const codeVerifier = randomToken(48);
+      const codeChallenge = await sha256Base64Url(codeVerifier);
+      const state = randomToken(24);
+      writeJson("tg_pkce", { codeVerifier, state, pendingPostId: postId });
+      const visitorToken = await getVisitorToken();
+      const r = await fetch(OAUTH.redirectSessionUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": visitorToken },
+        body: JSON.stringify({ auth: { authRequest: {
+          redirectUri: OAUTH.redirectUri,
+          clientId: OAUTH.clientId,
+          codeChallenge,
+          codeChallengeMethod: "S256",
+          responseMode: "fragment",
+          responseType: "code",
+          scope: "offline_access",
+          state
+        } } })
+      });
+      if (!r.ok) throw new Error("could not start login");
+      const data = await r.json();
+      window.location.href = data.redirectSession.fullUrl;
+    }
+
+    async function completeMemberLoginIfReturning() {
+      if (!location.hash.includes("code=")) return null;
+      const params = new URLSearchParams(location.hash.slice(1));
+      const code = params.get("code");
+      const returnedState = params.get("state");
+      const pkce = readJson("tg_pkce");
+      history.replaceState(null, "", location.pathname + location.search);
+      if (!code || !pkce || returnedState !== pkce.state) return null;
+      localStorage.removeItem("tg_pkce");
+      try {
+        const r = await fetch(OAUTH.tokenUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+          clientId: OAUTH.clientId, grantType: "authorization_code", redirectUri: OAUTH.redirectUri, code, codeVerifier: pkce.codeVerifier
+        }) });
+        if (!r.ok) return null;
+        const data = await r.json();
+        writeJson("tg_member", { accessToken: data.access_token, refreshToken: data.refresh_token, expiresAt: Date.now() + data.expires_in * 1000 });
+        return pkce.pendingPostId || null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    async function hasLikedPost(postId, memberToken) {
+      try {
+        const r = await fetch(`${OAUTH.likesUrl}/query`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Authorization": memberToken },
+          body: JSON.stringify({ query: { filter: { fqdn: "wix.blog.v3.post", entityId: postId } } })
+        });
+        if (!r.ok) return false;
+        const data = await r.json();
+        return (data.likes || []).length > 0;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    async function createLike(postId, memberToken) {
+      const r = await fetch(OAUTH.likesUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": memberToken },
+        body: JSON.stringify({ like: { fqdn: "wix.blog.v3.post", entityId: postId } })
+      });
+      if (!r.ok) throw new Error("like failed");
+    }
+
+    async function deleteLike(postId, memberToken) {
+      const r = await fetch(`${OAUTH.likesUrl}/fqdn/wix.blog.v3.post/entity-id/${encodeURIComponent(postId)}`, {
+        method: "DELETE",
+        headers: { "Authorization": memberToken }
+      });
+      if (!r.ok) throw new Error("unlike failed");
+    }
+
+    function setLikeButtonState(btn, liked) {
+      btn.classList.toggle("liked", liked);
+      btn.setAttribute("aria-pressed", liked ? "true" : "false");
+    }
+
+    async function refreshLikeButtonForCurrentArticle(postId) {
+      const btn = reader.querySelector(".like-btn");
+      if (!btn) return;
+      const memberToken = await getMemberToken();
+      if (!memberToken) { setLikeButtonState(btn, false); return; }
+      const liked = await hasLikedPost(postId, memberToken);
+      setLikeButtonState(btn, liked);
+    }
+    window.refreshLikeButtonForCurrentArticle = refreshLikeButtonForCurrentArticle;
+
+    async function handleLikeTap(postId, btn) {
+      const memberToken = await getMemberToken();
+      if (!memberToken) {
+        btn.disabled = true;
+        try { await startMemberLogin(postId); } catch (e) { btn.disabled = false; }
+        return;
+      }
+      const wasLiked = btn.classList.contains("liked");
+      btn.disabled = true;
+      setLikeButtonState(btn, !wasLiked);
+      try {
+        if (wasLiked) await deleteLike(postId, memberToken);
+        else await createLike(postId, memberToken);
+      } catch (e) {
+        setLikeButtonState(btn, wasLiked);
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.addEventListener("click", e => {
+      const likeBtn = e.target.closest(".like-btn");
+      if (likeBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!likeBtn.disabled) handleLikeTap(likeBtn.dataset.likePost, likeBtn);
+      }
+    });
+
+    (async () => {
+      const pendingPostId = await completeMemberLoginIfReturning();
+      if (pendingPostId) {
+        await openArticle(pendingPostId);
+        const memberToken = await getMemberToken();
+        if (memberToken) {
+          const btn = reader.querySelector(".like-btn");
+          if (btn && !btn.classList.contains("liked")) await handleLikeTap(pendingPostId, btn);
+        }
+      }
+    })();
   </script>
 </body>
 </html>
